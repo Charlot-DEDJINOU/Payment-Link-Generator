@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\CollectionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('/init_transaction/{data}', [App\Http\Controllers\Api\TransactionController::class, 'init_transaction']);
-
+Route::post('/transaction', [TransactionController::class, 'store'])->name('transaction.store');
+Route::put('/collection/rqsttopay/{id_generate}', [CollectionController ::class, 'rqsttopay'])->name('collection.rqstopay');
+Route::get('/collection/paymentstatus/{id_generate}', [CollectionController ::class, 'paymentStatus'])->name('collection.paymentStatus');
