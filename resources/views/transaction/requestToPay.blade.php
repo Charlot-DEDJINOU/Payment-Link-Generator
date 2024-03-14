@@ -6,7 +6,7 @@
                 <div class="card-header">Tansfert d'Argent</div>
                     <div class="card-body">
                         <div id="payLoader" class="" style="display:none">
-                            @include('requestToPayAwait')
+                            @include('transaction.requestToPayAwait')
                         </div>
                         <div id="content-paie">
                             <form id='form-paie' class="d-flex flex-column justify-content-center align-items-center p-3" method="POST" id_generate={{ $transaction->id_generate }}>
@@ -54,7 +54,7 @@
                 const id_generate = this.getAttribute('id_generate');
 
                 $.ajax({
-                    url: "api/collection/rqsttopay/" + id_generate,
+                    url: "/api/collection/rqsttopay/" + id_generate,
                     method: "PUT",
                     data: requestBody,
                     success: function (response) {
@@ -64,7 +64,7 @@
                         if(response.status == 'PENDING') {
                             var intervalId = setInterval(function(){
                                 $.ajax({
-                                    url: "api/collection/paymentstatus/" + id_generate,
+                                    url: "/api/collection/paymentstatus/" + id_generate,
                                     method:"GET",
                                     success: function(response){
                                         $("#content-paie").html(response.html);
