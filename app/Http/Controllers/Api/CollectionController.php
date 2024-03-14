@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Component\Getuuid;
 use App\Http\Controllers\Component\CollectionRequestController;
 use App\Http\Controllers\Component\CollectionKeyController;
+use Carbon\Carbon;
 
 class CollectionController extends Controller
 {
@@ -43,8 +44,15 @@ class CollectionController extends Controller
                 'uuid' => $uuid,
                 'id_payement' => $externalId,
                 'status' => $status,
-                'currency' => $currency
+                'currency' => $currency,
             ]);
+
+            if($transaction->status != $status && $status == 'SUCCESSFUL')
+            {
+                $transaction->update([
+                    'payment_date' => Carbon::now()
+                ]);
+            }
 
             return $this->htmlPages($status, $transaction);
         }
@@ -70,8 +78,15 @@ class CollectionController extends Controller
         extract($paymentStat);
 
         $transaction->update([
-            'status' => $status
+            'status' => $status,
         ]);
+
+        if($transaction->status != $status && $status == 'SUCCESSFUL')
+        {
+            $transaction->update([
+                'payment_date' => Carbon::now()
+            ]);
+        }
 
         return $this->htmlPages($status, $transaction);
        
