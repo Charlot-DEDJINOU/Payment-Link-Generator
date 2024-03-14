@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(243, 243, 243);
+}
+section {
+    height: 100vh;
+    width: 100%;
+}
+.choice-country {
+    height: auto;
+    background-color: white;
+    border-radius: 5px;
+}
+.background-white {
+    background-color: white;
+    border-radius: 10px;
+}
+section input {
+    box-shadow: none !important;
+    outline: none !important;
+}
