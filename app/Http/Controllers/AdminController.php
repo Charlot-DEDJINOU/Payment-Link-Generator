@@ -38,7 +38,13 @@ class AdminController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('admin.getlogin')->with('success', 'Admin créé avec succès');
+        return redirect()->route('dashboard.index')->with('success', 'Admin créé avec succès');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 
     public function getLogin() 
