@@ -13,9 +13,11 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'customer_lastname' => 'required|string',
+            'customer_firstname' => 'required|string',
             'plateform' => 'required|string',
             'amount' => 'required|numeric',
-            'type' => 'required|string',
+            'description' => 'required|string',
             'url_callback' => 'nullable|string',
         ]);
 
@@ -29,13 +31,16 @@ class TransactionController extends Controller
         $link = route('transaction.confirm', ['id_generate' => $transactionId]);
 
         Transaction::create([
-            'id_generate' => $transactionId,
+            'customer_lastname' => $request->input('customer_lastname'),
+            'customer_firstname' => $request->input('customer_firstname'),
+            'description' => $request->input('description'),
             'plateform' => $request->input('plateform'),
             'amount' => $request->input('amount'),
-            'type' => $request->input('type'),
+            'id_generate' => $transactionId,
             'expiration_time' => $expirationTime,
             'payment_link' => $link,
             'status' => 'pending',
+            'currency' => 'XOF',
         ]);
 
         return response()->json(['confirmation_link' => $link], 200);
@@ -62,8 +67,6 @@ class TransactionController extends Controller
                 'country' => 'required|string',
                 'paymentMethod' => 'required|string|',
             ]);
-
-            error_log(json_encode($request->all()));
     
             if ($validator->fails()) {
                 return view('transaction.index')->with('error','Veuillez remplir tout les champs');
