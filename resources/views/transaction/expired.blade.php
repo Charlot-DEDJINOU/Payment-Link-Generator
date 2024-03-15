@@ -7,11 +7,11 @@
                 @if (isset($transaction))
                     <div class="card-body">
                         @if ($transaction->status == "PENDING")
-                            @include('requestToPayPend')
+                            @include('transaction.requestToPayPend')
                         @elseif ($transaction->status == "SUCCESSFUL")
-                            @include('requestToPaySuccess')
+                            @include('transaction.requestToPaySuccess')
                         @else
-                            @include('requestToPayFail')
+                            @include('transaction.requestToPayFail')
                         @endif
                     </div>
                 @endif
