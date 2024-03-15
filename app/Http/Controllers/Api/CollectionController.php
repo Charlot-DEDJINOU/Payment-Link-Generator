@@ -39,20 +39,19 @@ class CollectionController extends Controller
             $paymentStat = CollectionRequestController::PaymentStatus($uuid, $access_token, $Ocp);
             extract($paymentStat);
             
-            $transaction->update([
-                'numero' => $phone,
-                'uuid' => $uuid,
-                'id_payement' => $externalId,
-                'status' => $status,
-                'currency' => $currency,
-            ]);
-
-            if($transaction->status != $status && $status == 'SUCCESSFUL')
+            if($transaction->status != $status && $status == "SUCCESSFUL")
             {
                 $transaction->update([
                     'payment_date' => Carbon::now()
                 ]);
             }
+
+            $transaction->update([
+                'number' => $phone,
+                'uuid' => $externalId,
+                'status' => $status,
+                'currency' => $currency,
+            ]);
 
             return $this->htmlPages($status, $transaction);
         }
@@ -77,16 +76,16 @@ class CollectionController extends Controller
         $paymentStat = CollectionRequestController::PaymentStatus($uuid, $access_token, $Ocp);
         extract($paymentStat);
 
-        $transaction->update([
-            'status' => $status,
-        ]);
-
         if($transaction->status != $status && $status == 'SUCCESSFUL')
         {
             $transaction->update([
                 'payment_date' => Carbon::now()
             ]);
         }
+        
+        $transaction->update([
+            'status' => $status,
+        ]);
 
         return $this->htmlPages($status, $transaction);
        
@@ -124,17 +123,17 @@ class CollectionController extends Controller
         if ($status === "PENDING") {
             return response()->json([
                 'status' => 'PENDING',
-                'html' => view('requestToPayPend')->render()
+                'html' => view('transaction.requestToPayPend')->render()
             ]);
         } else if ($status === "SUCCESSFUL") {
             return response()->json([
                 'status' => 'SUCCESSFUL',
-                'html' => view('requestToPaySuccess',compact('transaction'))->render()
+                'html' => view('transaction.requestToPaySuccess',compact('transaction'))->render()
             ]);
         } else {
             return response()->json([
                 'status' => 'FAILED',
-                'html' => view('requestToPayFail',compact('transaction'))->render()
+                'html' => view('transaction.requestToPayFail',compact('transaction'))->render()
             ]);
         }
     }
