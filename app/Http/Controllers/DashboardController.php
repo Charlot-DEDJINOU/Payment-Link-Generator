@@ -22,15 +22,20 @@ class DashboardController extends Controller
 
    public function transaction($id_generate)
    {
-      $transaction = Transaction::where('id_generate', $id_generate);
+      $transaction = Transaction::where('id_generate', $id_generate)->first();
+      error_log(json_encode($transaction));
 
-      return view('dashboard.transaction', compact('transaction'));
+      return view('dashboard.detailsTransaction', compact('transaction'));
    }
 
-   public function refreshTransiction($id_generate)
+   public function refreshTransaction($id_generate)
    {
       $collectionController = new CollectionController();
 
       $response = $collectionController->paymentStatus($id_generate);
+
+      $transactions = Transaction::all();
+
+      return view('dashboard.index',compact('transactions'));
    }
 }
