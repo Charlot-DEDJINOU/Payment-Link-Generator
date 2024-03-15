@@ -23,13 +23,13 @@ class AdminController extends Controller
     public function postRegister(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:admins',
             'email' => 'required|string|email|max:255|unique:admins',
             'password' => 'required|string|min:8',
         ]);
         
         if ($validator->fails()) {
-            return view('admin.register')->with('error','Veuillez remplir tout les champs');
+            return view('dashboard.registerAdmin')->with('error',$validator->errors());
         }
 
         $admin = Admin::create([
@@ -54,6 +54,6 @@ class AdminController extends Controller
 
     public function getRegister() 
     {
-        return view('admin.register');
+        return view('dashboard.registerAdmin');
     }
 }
