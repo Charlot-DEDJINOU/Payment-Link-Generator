@@ -37,9 +37,9 @@ Ce projet Laravel est une application de génération de liens de paiement MTN M
 
 4. **Création d'administrateur**
 
-```bash
-php artisan db:seed --class=AdminSeeder
-```
+   ```bash
+   php artisan db:seed --class=AdminSeeder
+   ```
 
 L'administrateur a pour username : admin et mot de passe : admin
 
