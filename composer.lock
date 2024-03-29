@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "509f1d394e6f7eb417558f2186f5a775",
+    "content-hash": "fb0dfd28656454ca24b3ffa133884e33",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -458,60 +458,6 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
-        },
-        {
-            "name": "fedapay/fedapay-php",
-            "version": "0.3.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fedapay/fedapay-php.git",
-                "reference": "1ff3976c25a07d1e7b69a49c68acc691587ab970"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fedapay/fedapay-php/zipball/1ff3976c25a07d1e7b69a49c68acc691587ab970",
-                "reference": "1ff3976c25a07d1e7b69a49c68acc691587ab970",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "fzaninotto/faker": "^1.7",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "FedaPay\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "FedaPay and contributors",
-                    "homepage": "https://github.com/fedapay/fedapay-php/contributors"
-                }
-            ],
-            "description": "PHP library for FedaPay https://fedapay.com",
-            "homepage": "https://fedapay.com/",
-            "keywords": [
-                "api",
-                "fedapay",
-                "payment processing"
-            ],
-            "support": {
-                "issues": "https://github.com/fedapay/fedapay-php/issues",
-                "source": "https://github.com/fedapay/fedapay-php/tree/0.3.5"
-            },
-            "time": "2021-05-24T17:55:27+00:00"
         },
         {
             "name": "fideloper/proxy",
