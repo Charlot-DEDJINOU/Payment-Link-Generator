@@ -8,20 +8,20 @@ class CollectionKeyController extends Controller
 {
 
     public static function ApiUser(){
-        $apiUser = "466d1b57-bfef-47d6-897c-d9a36b49ab5e";
+        $apiUser = "YOUR API USER";
     
         return $apiUser;
     }
     
     public static function ApiKey(){
-        $apiKey = "bf21f9cebe2c477db2322c1fe67f46fb";
+        $apiKey = "YOUR API KEY";
     
         return $apiKey;
     }
     
     public static function Ocp_Apim_Subscription_Key(){
-        $primary = "edb2ad8c18e24bf69db48dc391e30b2d";
-        $secondary = "6d9c7eadccb448a897f48044e51dfe94";
+        $primary = "YOUR PRIMARY";
+        $secondary = "YOUR SECONDARY";
     
         $keys = array($primary,$secondary);
         $i = rand(0, count($keys)-1);
@@ -37,4 +37,3 @@ class CollectionKeyController extends Controller
         return $auth;
     }
 }
-
