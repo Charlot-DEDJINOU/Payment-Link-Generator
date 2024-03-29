@@ -11,7 +11,7 @@
                         <div id="content-paie">
                             <form id='form-paie' class="d-flex flex-column justify-content-center align-items-center p-3" method="POST" id_generate={{ $transaction->id_generate }}>
                                 @csrf
-                                <img src="{{ asset('assets/logo_yl.png') }}" />
+                                <img src="{{ asset('assets/logo.png') }}" width="250px" height="120px" />
                                 <h5 class="modal-title text-center my-3 text-center">Paiement sécurisé par <b class="text-warning">Mobile Money</b></h5>
                                 <div class="paymentbox w-100">
                                     <div class="mb-3">

@@ -6,7 +6,7 @@
         </a>
       @else
         <a class="navbar-brand text-white fw-medium fs-4 mx-2">
-          General Invasion
+            Logo
         </a>
       @endif
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,6 +1,6 @@
 <div class='resquesttopaysuccessful d-flex flex-column justify-content-center align-items-center'>
     <h4 class='h4 mb-3 fw-normal'>Paiement effectué avec succès</h4>
-    <img class='mb-4 img-fluid w-25' src='{{ asset('assets/yl_success.png') }}' alt='' width='50' height='45'>
+    <img class='mb-4 img-fluid w-25' src='{{ asset('assets/success.png') }}' alt='' width="100px" height="100px">
     <div class='paymentbox container'>
         <div class='form-floating border p-3 mb-3 text-muted' style="border-radius: 5px">
             Vous avez réalisé un paiement d'un montant de {{ $transaction->amount . ' ' . $transaction->currency }}

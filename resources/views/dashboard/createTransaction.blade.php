@@ -14,13 +14,13 @@
                 <input type="text" class="form-control" id="exampleInputName1" value="{{ old('customer_firstname') }}" name="customer_firstname" />
             </div>
             <div class="mb-3 col-md-6">
-                <label for="plateform" class="form-label">Plateform</label>
+                <label for="plateform" class="form-label">Services</label>
                 <select class="form-select shadow-none border-none" id="plateform" name="plateform">
-                    <option selected disabled value="">Choisissez votre méthode de paiement</option>
-                    <option value="Youpilab Component">Youpilab Component</option>
-                    <option value="Youpilab Education">Youpilab Education</option>
-                    <option value="Dakodo">Dakodo</option>
-                    <option value="Youpilab IOT">Youpilab IOT</option>
+                    <option selected disabled value="">Choisissez le services</option>
+                    <option value="Developpement">Developpement</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="Formation">Formation</option>
+                    <option value="IOT">IOT</option>
                 </select>
             </div>
             <div class="mb-3 col-md-6">

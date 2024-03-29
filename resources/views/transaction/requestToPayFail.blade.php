@@ -1,5 +1,5 @@
 <div class='resquesttopayfail d-flex flex-column justify-content-center align-items-center'>
-    <img class='mb-4 img-fluid w-25' src='{{ asset('assets/yl_fail.png') }}' alt='' width='72' height='57'>
+    <img class='mb-4 img-fluid w-25' src='{{ asset('assets/failed.png') }}' alt='' width="100px" height="100px">
     <h4 class='h4 mb-3 fw-normal text-center'>Un problème est survenue lors du paiement Veuillez réssayez</h4>
     <p>NB: Vérifier que vous avez entrer un numéro Mobile Money Valide</p>
     <div class='paymentbox w-100'>
