@@ -35,13 +35,7 @@ Ce projet Laravel est une application de génération de liens de paiement MTN M
    php artisan migrate
    ```
 
-4. **Démarrage du serveur :** Lancez le serveur Laravel pour accéder à l'application dans votre navigateur :
-
-   ```bash
-   php artisan serve
-   ```
-
-### 3. Création d'administrateur
+4. **Création d'administrateur**
 
 ```bash
 php artisan db:seed --class=AdminSeeder
@@ -49,7 +43,13 @@ php artisan db:seed --class=AdminSeeder
 
 L'administrateur a pour username : admin et mot de passe : admin
 
-5. **Accès au tableau de bord :** Connectez-vous en tant qu'administrateur pour accéder au tableau de bord et commencer à gérer les transactions et les utilisateurs.
+5. **Démarrage du serveur :** Lancez le serveur Laravel pour accéder à l'application dans votre navigateur :
+
+   ```bash
+   php artisan serve
+   ```
+
+6. **Accès au tableau de bord :** Connectez-vous en tant qu'administrateur pour accéder au tableau de bord et commencer à gérer les transactions et les utilisateurs.
 
 ### Configuration des clés API :
 
