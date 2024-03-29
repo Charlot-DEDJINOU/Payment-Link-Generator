@@ -1,62 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Générateur de liens de paiement MTN MOMO Bénin
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Ce projet Laravel est une application de génération de liens de paiement MTN MOMO Bénin, conçue pour simplifier le processus de paiement en ligne pour les utilisateurs et les administrateurs. L'application permet aux utilisateurs de générer des liens de paiement personnalisés pour leurs clients, de collecter des informations supplémentaires lors du paiement et de suivre toutes les transactions effectuées.
 
-## About Laravel
+### Fonctionnalités principales :
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Génération de liens de paiement personnalisés :** Les utilisateurs peuvent créer des liens de paiement spécifiques pour chaque client en fournissant des informations telles que le nom, le prénom, le montant à payer, les services offerts et une brève description.
+  
+- **Tableau de bord administratif :** L'administration peut gérer les transactions et les utilisateurs via un tableau de bord sécurisé. Les fonctionnalités incluent la visualisation de toutes les transactions avec des détails complets, la recharge des transactions pour obtenir des mises à jour de statut, la création de nouveaux administrateurs, et plus encore.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Suivi des transactions :** Les administrateurs peuvent consulter toutes les transactions avec des informations détaillées telles que le nom du client, le montant, la plateforme de paiement, le numéro de téléphone, la date de paiement, le statut de la transaction, etc.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Technologies utilisées :
 
-## Learning Laravel
+- Laravel
+- PHP
+- HTML/CSS/JS/JQuery
+- MySQL
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Comment démarrer :
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Installation des dépendances :** Clonez ce dépôt et installez les dépendances en utilisant Composer :
 
-## Laravel Sponsors
+   ```bash
+   git clone https://github.com/votre-utilisateur/nom-depot.git
+   cd nom-depot
+   composer install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+2. **Configuration de l'environnement :** Copiez le fichier `.env.example` en `.env` et configurez les variables d'environnement, notamment la base de données et les informations d'authentification.
 
-### Premium Partners
+3. **Migration de la base de données :** Exécutez les migrations pour créer les tables nécessaires dans la base de données :
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+   ```bash
+   php artisan migrate
+   ```
 
-## Contributing
+4. **Démarrage du serveur :** Lancez le serveur Laravel pour accéder à l'application dans votre navigateur :
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   ```bash
+   php artisan serve
+   ```
 
-## Code of Conduct
+### 3. Création d'administrateur
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+php artisan db:seed --class=AdminSeeder
+```
 
-## Security Vulnerabilities
+L'administrateur a pour username : admin et mot de passe : admin
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5. **Accès au tableau de bord :** Connectez-vous en tant qu'administrateur pour accéder au tableau de bord et commencer à gérer les transactions et les utilisateurs.
 
-## License
+### Configuration des clés API :
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Pour que l'application fonctionne correctement, vous devez remplacer les valeurs par défaut dans le fichier `CollectionKeyController.php` avec vos propres clés API. Voici comment procéder :
+
+1. Ouvrez le fichier `App\Http\Controllers\Component\CollectionKeyController.php` dans votre éditeur de code.
+
+2. Remplacez les valeurs par défaut par vos vraies valeurs dans les fonctions `ApiUser()`, `ApiKey()` et `Ocp_Apim_Subscription_Key()`.
+
+   ```php
+   public static function ApiUser(){
+       $apiUser = "VOTRE UTILISATEUR API";
+   
+       return $apiUser;
+   }
+   
+   public static function ApiKey(){
+       $apiKey = "VOTRE CLÉ API";
+   
+       return $apiKey;
+   }
+   
+   public static function Ocp_Apim_Subscription_Key(){
+       $primary = "VOTRE CLÉ PRIMAIRE";
+       $secondary = "VOTRE CLÉ SECONDAIRE";
+   
+       $keys = array($primary,$secondary);
+       $i = rand(0, count($keys)-1);
+       return $keys[$i];
+   }
+   ```
+
+3. Enregistrez les modifications apportées au fichier `CollectionKeyController.php`.
